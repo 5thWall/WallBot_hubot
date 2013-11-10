@@ -25,6 +25,3 @@ module.exports = (robot) ->
       process.exit 0
     else
       msg.reply "Only users with 'kill' role may do that."
-      msg.send "But, I'll go away just this once"
-      process.exit 0
-

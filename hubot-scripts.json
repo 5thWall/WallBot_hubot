@@ -1,5 +1,6 @@
 [
   "advice.coffee",
+  "auth.coffee",
   "ambush.coffee",
   "cheer.coffee",
   "decide.coffee",

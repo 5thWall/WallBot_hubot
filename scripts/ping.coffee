@@ -9,11 +9,6 @@
 
 module.exports = (robot) ->
 
-  if process.env.HUBOT_AUTH_ADMIN?
-    admins = process.env.HUBOT_AUTH_ADMIN.split ','
-  else
-    admins = []
-
   robot.respond /PING$/i, (msg) ->
     msg.send "PONG"
 
@@ -24,9 +19,12 @@ module.exports = (robot) ->
     msg.send "Server time is: #{new Date()}"
 
   robot.respond /DIE$/i, (msg) ->
-    if msg.message.user.id.toString() in admins
+    name = msg.message.user.name
+    if robot.Auth.hasRole name, 'kill'
       msg.send "Goodbye, cruel world."
       process.exit 0
     else
-      msg.reply "Only admins can do that."
+      msg.reply "Only users with 'kill' role may do that."
+      msg.send "But, I'll go away just this once"
+      process.exit 0
 

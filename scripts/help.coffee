@@ -52,7 +52,7 @@ helpContents = (name, commands) ->
 
 module.exports = (robot) ->
   robot.respond /help\s*(.*)?$/i, (msg) ->
-    msg.send "Commands listed at http://irc.the5thwall.net/#{robot.name}/help"
+    msg.send "Commands listed at http://irc.the5thwall.net:8080/#{robot.name}/help"
 
   robot.router.get "/#{robot.name}/help", (req, res) ->
     cmds = robot.helpCommands().map (cmd) ->

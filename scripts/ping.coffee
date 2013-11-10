@@ -8,6 +8,12 @@
 #   hubot die - End hubot process
 
 module.exports = (robot) ->
+
+  if process.env.HUBOT_AUTH_ADMIN?
+    admins = process.env.HUBOT_AUTH_ADMIN.split ','
+  else
+    admins = []
+
   robot.respond /PING$/i, (msg) ->
     msg.send "PONG"
 
@@ -18,6 +24,9 @@ module.exports = (robot) ->
     msg.send "Server time is: #{new Date()}"
 
   robot.respond /DIE$/i, (msg) ->
-    msg.send "Goodbye, cruel world."
-    process.exit 0
+    if msg.message.user.id.toString() in admins
+      msg.send "Goodbye, cruel world."
+      process.exit 0
+    else
+      msg.reply "Only admins can do that."
 

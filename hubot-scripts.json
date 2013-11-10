@@ -1,1 +1,17 @@
-["redis-brain.coffee", "shipit.coffee"]
+[
+  "advice.coffee",
+  "ambush.coffee",
+  "cheer.coffee",
+  "decide.coffee",
+  "excuse.coffee",
+  "file-brain.coffee",
+  "karma.coffee",
+  "pomodoro.coffee",
+  "remember.coffee",
+  "remind.coffee",
+  "sudo.coffee",
+  "thanks-obama.coffee",
+  "wikipedia.coffee",
+  "working-on.coffee",
+  "youtube-info.coffee"
+]

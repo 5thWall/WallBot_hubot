@@ -13,7 +13,14 @@ module.exports = (robot) ->
     msg.send "PONG"
 
   robot.respond /ECHO (.*)$/i, (msg) ->
-    msg.send msg.match[1]
+    name = msg.message.user.name
+    if robot.Auth.hasRole name, 'echo'
+      msg.send msg.match[1]
+
+  robot.respond /EMOTE (.*)$/i, (msg) ->
+    name = msg.message.user.name
+    if robot.Auth.hasRole name, 'emote'
+      msg.emote msg.match[1]
 
   robot.respond /TIME$/i, (msg) ->
     msg.send "Server time is: #{new Date()}"

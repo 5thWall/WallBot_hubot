@@ -43,6 +43,9 @@ helpContents = (name, commands) ->
   </head>
   <body>
     <h1>#{name} Help</h1>
+    <div class="contribute">
+      To Contribute, send a pull-request to https://github.com/5thWall/Wallbot
+    </div>
     <div class="commands">
       #{commands}
     </div>

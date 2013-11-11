@@ -2,28 +2,33 @@
 #   Utility commands surrounding Hubot uptime.
 #
 # Commands:
-#   hubot ping - Reply with pong
-#   hubot echo <text> - Reply back with <text>
-#   hubot time - Reply with current time
-#   hubot die - End hubot process
+#   hubot ping - Reply with pong requires 'ping' role
+#   hubot echo <text> - Reply back with <text> requires 'ping' role
+#   hubot emote <text> - Emote <text> requires 'ping' role
+#   hubot time - Reply with current time requires 'ping' role
+#   hubot die - End hubot process requires 'kill' role
 
 module.exports = (robot) ->
 
+  msgFromPing = (msg) ->
+    name = msg.message.user.name
+    robot.Auth.hasRole name, 'ping'
+
   robot.respond /PING$/i, (msg) ->
-    msg.send "PONG"
+    if msgFromPing msg
+      msg.send "PONG"
 
   robot.respond /ECHO (.*)$/i, (msg) ->
-    name = msg.message.user.name
-    if robot.Auth.hasRole name, 'echo'
+    if msgFromPing msg
       msg.send msg.match[1]
 
   robot.respond /EMOTE (.*)$/i, (msg) ->
-    name = msg.message.user.name
-    if robot.Auth.hasRole name, 'emote'
+    if msgFromPing msg
       msg.emote msg.match[1]
 
   robot.respond /TIME$/i, (msg) ->
-    msg.send "Server time is: #{new Date()}"
+    if msgFromPing msg
+      msg.send "Server time is: #{new Date()}"
 
   robot.respond /DIE$/i, (msg) ->
     name = msg.message.user.name

@@ -43,7 +43,7 @@ module.exports = (robot) ->
     user = msg.message.user.name
     robot.Auth.hasRole user, 'timeout'
 
-  getTimeoutTime = (t = 1) ->
+  getTimeoutTime = (t = 5) ->
     (parseInt t, 10) * 60 * 1000
 
   joinAction = (msg) ->

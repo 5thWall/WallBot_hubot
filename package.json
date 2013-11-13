@@ -22,7 +22,7 @@
   "dependencies": {
     "hubot": ">= 2.6.0 < 3.0.0",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
-    "hubot-irc": "~0.1.19",
+    "hubot-irc": "5thWall/hubot-irc#master",
     "underscore": "~1.5.2",
     "request": "~2.27.0",
     "cheerio": "~0.12.3",

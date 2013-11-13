@@ -48,7 +48,6 @@ module.exports = (robot) ->
 
   joinAction = (msg) ->
     join msg.message.room
-    msg.send "I'm back!"
 
   robot.respond /timeout(?:\s+(\d*)(\s*min)?)?$/i, (msg) ->
     return (cantDoThat msg) unless canJoinPart
@@ -56,7 +55,6 @@ module.exports = (robot) ->
 
     time = getTimeoutTime msg.match[1]
 
-    msg.send "Leaving for #{time} milliseconds"
     msg.emote "stomps off"
     part msg.message.room
 

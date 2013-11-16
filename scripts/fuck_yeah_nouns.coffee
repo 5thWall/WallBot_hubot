@@ -20,7 +20,7 @@
 providers =
   holman: (noun) ->
     noun = escape noun
-    "http://fuckyeah.herokuapp.com/#{noun}.jpg"
+    "http://fuckyeah.herokuapp.com/{noun}"
 
 module.exports = (robot) ->
   robot.hear /fuck yeah (.+)/i, (msg) ->

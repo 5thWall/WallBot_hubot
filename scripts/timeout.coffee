@@ -3,6 +3,9 @@
 #
 # Commands:
 #   hubot timeout [min] - Cause hubot to part the current room and return in min minutes
+#
+# Author:
+#   5thWall
 
 noPhrases = [
   "you're not my real dad!",

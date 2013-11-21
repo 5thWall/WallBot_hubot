@@ -15,5 +15,5 @@
 
 module.exports = (robot) ->
 
-  robot.hear /you lie|you('re|r) lying|don't believe you|liar|lies/i, (msg) ->
+  robot.hear /\b(you lie|you('re|r) lying|don't believe you|liar|lies)\b/i, (msg) ->
     msg.send "http://i.imgur.com/XvUsaD9.jpg"
